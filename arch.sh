@@ -3,14 +3,10 @@
 
 # DO
 	# encrypt disk & lock BIOS
-	# printing
+	# printing & bluetooth
 	# https://wiki.archlinux.org/title/VirtualBox
-	# https://wiki.archlinux.org/title/GNOME/Keyring
-	# https://wiki.archlinux.org/title/Autostarting
 	# https://wiki.archlinux.org/title/Cron
 	# https://wiki.archlinux.org/title/Improving_performance
-	# https://arewewaylandyet.com/
-	# https://labwc.github.io/index.html
 
 ip a
 ping archlinux.org
@@ -47,7 +43,7 @@ fdisk /dev/sda
 	n
 	+8000M
 	t
-	82
+	82	# check
 	n
 	w
 fdisk -l /dev/sda
@@ -69,14 +65,14 @@ arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/US/Pacific /etc/localtime
 hwclock --systohc
 helix /etc/locale.gen
-# uncomment "en_US.UTF-8 UTF-8"
+	# uncomment "en_US.UTF-8 UTF-8"
 locale-gen
 helix /etc/locale.conf
-# add LANG=en_US.UTF-8
+	# add LANG=en_US.UTF-8
 helix /etc/vconsole.conf
-# add FONT=ter-132b
+	# add FONT=ter-132b
 helix /etc/hostname
-# add "TVCom" or "KitCom"
+	# add "TVCom" or "KitCom"
 # for UEFI
 	grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot
 	grub-mkconfig -o /boot/grub/grub.cfg
@@ -91,7 +87,7 @@ passwd
 useradd -m masonp # or family
 passwd masonp	# or family
 EDITOR=helix visudo /etc/sudoers
-# add "masonp ALL=(ALL:ALL) ALL" or "family ALL=(ALL:ALL) ALL"
+	# add "masonp ALL=(ALL:ALL) ALL" or "family ALL=(ALL:ALL) ALL"
 systemctl enable NetworkManager.service
 exit
 shutdown now
@@ -105,25 +101,40 @@ sudo timedatectl set-timezone America/Los_Angeles
 sudo timedateclt set-ntp true
 sudo timedatectl status
 sudo pacman -Syu
-sudo pacman -S vlc ufw cups curl simple-scan foot thunar htop xorg-xwayland lftp # firefox spotify-launcher
+sudo pacman -S vlc ufw cups curl simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr git # firefox spotify-launcher
+mkdir ~/src
+cd ~/src
+git clone git@github.com:Mason-Perdue/Linux-Config.git
 # for Chrome
-	mkdir /home/family/AUR/
-	cd /home/family/AUR/
+	cd ~/src
 	curl -LO https://aur.archlinux.org/cgit/aur.git/snapshot/google-chrome.tar.gz
 	tar -xvf google-chrome.tar.gz
 	rm google-chrome.tar.gz
 	cd google-chrome
 	makepkg -sirc
-	rm -r /home/family/AUR
-mkdir ftp
-cd ftp
-lftp admin:admin@192.168.0.1/G/Mason/Linux
-	ls
-	mirror
-	exit
-cp ~/.bashrc ~/.bashrc.bak
-mv ~/ftp/.bashrc ~/.bashrc
+	cd ~/src
+	rm -r google-chrome
+cp ~/src/.bashrc ~/.bashrc
 source ~/.bashrc
+sudo cp ~/src/-etc-pam.d-login /etc/pam.d/login
+mkdir ~/.config/alacritty/
+cp ~/src/dotconfig/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
+mkdir ~/.config/fuzzel/
+cp ~/src/dotconfig/fuzzel/fuzzel.ini ~/.config/fuzzel/fuzzel.ini
+mkdir ~/.config/helix/
+cp ~/src/dotconfig/helix/config.toml ~/.config/helix/config.toml
+mkdir ~/.config/hypr/
+cp ~/src/dotconfig/hypr/hypridle.conf ~/.config/hypr/hypridle.conf
+mkdir ~/.config/labwc/
+cp -r ~/src/dotconfig/labwc/scripts ~/.config/labwc/scripts
+cp ~/src/dotconfig/labwc/autstart ~/.config/labwc/autostart
+# change screen resolution from --preferred to --mode 1366x768@59.790001Hz if needed
+cp ~/src/dotconfig/labwc/menu.xml ~/.config/labwc/menu.xml
+cp ~/src/dotconfig/labwc/rc.xml ~/.config/labwc/rc.xml
+mkdir ~/.config/waybar/
+cp ~/src/dotconfig/waybar/config.jsonc ~/.config/waybar/config.jsonc
+cp ~/src/dotconfig/waybar/style.css ~/.config/waybar/style.css
+# change name of background image if needed
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 # sudo ufw allow from 192.168.0.0/24 to any port 753 proto tcp
@@ -134,24 +145,7 @@ sudo systemctl status ufw
 sudo ufw status verbose
 sudo systemctl enable --now cups.service
 # sudo systemctl enable --now bluetooth
-mkdir ~/.config/helix
-mv ~/ftp/config.toml ~/.config/helix/config.toml
-mkdir ~/.config/foot
-mv ~/ftp/foot.ini ~/.config/foot/foot.ini
-	cat /usr/share/foot/themes
+sudo gpasswd -a masonp seat
+sudo systemctl enable --now seatd.service
 paclean
 sudo reboot now
-# labwc
-	sudo pacman -S labwc
-	sudo gpasswd -a masonp seat
-	sudo systemctl enable --now seatd.service
-	sudo reboot now
-	sudo pacman -S alacrity
-	mkdir ~/.config/alacritty/
-	cp ~/ftp/Old/alacritty.toml ~/.config/alacritty/
-	sudo pacman -Runs foot
-	# windows+enter to open alacritty
-	mkdir ~/.config/labwc
-	# default configs in /usr/share/doc/labwc
-	# add polkit agent to autostart?
-	

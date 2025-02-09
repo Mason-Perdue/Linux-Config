@@ -1,6 +1,4 @@
-# ~/.bashrc
-
-# bash prompt (https://bash-prompt-generator.org/)
+# bash prompt
 PS1='\[\e[32m\]\u\[\e[38;5;26m\]@\h\[\e[0m\] \[\e[38;5;220m\][\w]\[\e[0m\] \[\e[92m\]\$\[\e[0m\] '
 
 # variables
@@ -13,8 +11,6 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias la='ls -a'
 alias cu='cd ..'
-alias ed='nano'
-alias exe='read file && chmod +x $file'
 alias pacup='sudo pacman -Syu'
 alias paclean='sudo pacman -R $(pacman -Qdtq) && sudo pacman -Scc'
 alias packey='sudo pacman -S archlinux-keyring'
@@ -22,29 +18,28 @@ alias msg='echo "Enter Message: " && read msg && curl -d "$msg" ntfy.sh/A76bd4Z5
 alias fontUp='setfont ter-132b'
 alias fontDown='setfont'
 alias productKey='echo "y" | sudo pacman -S acpica && sudo acpidump -n MSDM && echo "\n//Last five sets of five letters/numbers//\n"'
-alias chromeInstall='mkdir /home/family/AUR/ && cd /home/family/AUR/ && curl -LO https://aur.archlinux.org/cgit/aur.git/snapshot/google-chrome.tar.gz && tar -xvf google-chrome.tar.gz && cd google-chrome && makepkg -sirc && cd /home/family/ && rm -r /home/family/AUR/'
-alias ftp='lftp admin:admin@192.168.0.1/G'
+alias chromeInstall='cd ~/src && curl -LO https://aur.archlinux.org/cgit/aur.git/snapshot/google-chrome.tar.gz && tar -xvf google-chrome.tar.gz && rm google-chrome.tar.gz && cd google-chrome && makepkg -sirc && cd ~/src && rm -r google-chrome && cd'
 
 # functions
 jexe(){
 	javac "$1.java"
-  java "$1"
-  rm *.class
+	java "$1"
+	rm *.class
 }
 
 lexe(){
-  pdflatex "$1.tex"
+	pdflatex "$1.tex"
 }
 
 bexe(){
-  chmod +x "$1.sh"
-  ./"$1.sh"
+	chmod +x "$1.sh"
+	./"$1.sh"
 }
 
 gitCommit(){
-  git add .
-  git commit -m "$1"
-  git push -u origin main;
+	git add .
+	git commit -m "$1"
+	git push -u origin main;
 }
 
 runASM() {

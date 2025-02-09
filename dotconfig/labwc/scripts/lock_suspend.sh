@@ -1,1 +1,1 @@
-swaylock -f -i ~/ftp/Background.jpg --indicator-idle-visible && systemctl suspend
+swaylock -f -i ~/src/Background.jpg --indicator-idle-visible && systemctl suspend

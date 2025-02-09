@@ -7,7 +7,7 @@
     "margin-right": 0,
     "margin-bottom": 0,
     "margin-left": 0,
-   
+
     "modules-center": [
         "clock"
     ],
@@ -19,9 +19,9 @@
         "network",
         "pulseaudio"
     ],
-   
+
     "clock": {
-        "format": "{:%I:%M %p - %a, %d %b %Y}",
+        "format": "{:%I:%M %p - %a, %b %d}",
         "tooltip": false
     },
 

@@ -13,11 +13,6 @@ window#waybar {
     border: 0px solid #3c3836;
 }
 
-tooltip {
-    background-color: #000000;
-    border: 0px solid #7c6f64;
-}
-
 #clock,
 #cpu,
 #memory,
