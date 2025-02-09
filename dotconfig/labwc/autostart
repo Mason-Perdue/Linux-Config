@@ -1,0 +1,4 @@
+swaybg -i /home/masonp/ftp/Background.jpg >/dev/null 2>&1 &
+waybar >/dev/null 2>&1 &
+wlr-randr --output HDMI-A-1 --mode 1366x768@59.790001Hz --pos 0,0
+hypridle

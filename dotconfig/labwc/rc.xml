@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<labwc_config>
+
+  <keyboard>
+    <default />
+    <keybind key="W-space"><action name="Execute" command="fuzzel" /></keybind>
+    <keybind key="W-p"><action name="Execute" command="~/.config/labwc/scripts/screenshot.sh" /></keybind>
+    <keybind key="W-l"><action name="Execute" command="~/.config/labwc/scripts/lock_suspend.sh" /></keybind>
+    <keybind key="W-S-l"><action name="Execute" command="systemctl poweroff" /></keybind>
+    <keybind key="XF86_AudioLowerVolume"><action name="Execute" command="pamixer --decrease 5" /></keybind>
+    <keybind key="XF86_AudioRaiseVolume"><action name="Execute" command="pamixer --increase 5" /></keybind>
+    <keybind key="XF86_AudioMute"><action name="Execute" command="pamixer --set-volume 0" /></keybind>
+    <keybind key="W-q"><action name="Close" /></keybind>
+  </keyboard>
+
+</labwc_config>

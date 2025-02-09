@@ -1,0 +1,267 @@
+*PPD-Adobe: "4.3"
+*%
+*%    This program is free software: you can redistribute it and/or modify
+*%    it under the terms of the GNU General Public License as published by
+*%    the Free Software Foundation, either version 2 of the License, or
+*%    (at your option) any later version.
+*%
+*%    This program is distributed in the hope that it will be useful,
+*%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*%    GNU General Public License for more details.
+*%
+*%    You should have received a copy of the GNU General Public License
+*%    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*%
+*FormatVersion: "4.3"
+*FileVersion: "1.0"
+*LanguageEncoding: ISOLatin1
+*LanguageVersion: English
+*Manufacturer: "Brother"
+*PCFileName: "HL2270DW.PPD"
+*Product: "(Brother HL-2270DW series)"
+*PSVersion: "(3010.106) 3"
+*ShortNickName: "HL-2270DW"
+*ModelName: "Brother HL-2270DW"
+*NickName: "Brother HL-2270DW"
+*cupsVersion:   1.0
+*cupsManualCopies: True
+*cupsModelNumber:  2
+*cupsFilter:    "application/vnd.cups-postscript 100 foomatic-rip"
+*cupsFilter:    "application/vnd.cups-pdf 0 foomatic-rip"
+*%pprRIP:        foomatic-rip other
+*PSVersion:     "(3010.000) 550"
+*PSVersion:     "(3010.000) 651"
+*PSVersion:     "(3010.000) 652"
+*PSVersion:     "(3010.000) 653"
+*PSVersion:     "(3010.000) 704"
+*PSVersion:     "(3010.000) 705"
+*PSVersion:     "(3010.000) 800"
+*PSVersion:     "(3010.000) 815"
+*PSVersion:     "(3010.000) 850"
+*PSVersion:     "(3010.000) 860"
+*PSVersion:     "(3010.000) 861"
+*PSVersion:     "(3010.000) 862"
+*PSVersion:     "(3010.000) 863"
+*PSVersion:     "(3010.000) 864"
+*PSVersion:     "(3010.000) 870"
+*LanguageLevel: "3"
+*ColorDevice:   False
+*DefaultColorSpace: Gray
+*FileSystem:    False
+*Throughput:    "1"
+*LandscapeOrientation: Plus90
+*TTRasterizer:  Type42
+*1284DeviceID: "DRV:Dljet4,R0,M0,TG;"
+
+*driverName ljet4: ""
+*driverType G/Ghostscript built-in: ""
+*driverUrl: "http://www.ghostscript.com/"
+*driverObsolete: False
+*driverManufacturerSupplied: False
+
+*%==== JCL Features ==========================
+*JCLBegin:           "<1B>%-12345X@PJL JOB<0A>"
+*JCLToPSInterpreter: "@PJL ENTER LANGUAGE = PCL<0A>"
+*JCLEnd:             "<1B>%-12345X@PJL EOJ <0A><1B>%-12345X"
+
+
+*HWMargins: 18 36 18 36
+*VariablePaperSize: True
+*MaxMediaWidth: 100000
+*MaxMediaHeight: 100000
+*NonUIOrderDependency: 100 AnySetup *CustomPageSize
+*CustomPageSize True: "pop pop pop pop pop
+%% FoomaticRIPOptionSetting: PageSize=Custom"
+*End
+*FoomaticRIPOptionSetting PageSize=Custom: " -dDEVICEWIDTHPOINTS=0 -dDEVICEHEIGHTPOINTS=0"
+*End
+*ParamCustomPageSize Width: 1 points 36 100000
+*ParamCustomPageSize Height: 2 points 36 100000
+*ParamCustomPageSize Orientation: 3 int 0 0
+*ParamCustomPageSize WidthOffset: 4 points 0 0
+*ParamCustomPageSize HeightOffset: 5 points 0 0
+
+*FoomaticIDs: Generic-PCL_5e_Printer ljet4
+*FoomaticRIPCommandLine: "gs -q -dBATCH -dPARANOIDSAFER -dQUIET -dNOPAUSE -dNOINTERPOLATE -sDEVICE=ljet4%A%Z -sOutputFile=-%C -f -"
+*End
+
+*OpenGroup: General/General
+
+*OpenUI *PageSize/Page Size: PickOne
+*FoomaticRIPOption PageSize: enum CmdLine A
+*OrderDependency: 100 AnySetup *PageSize
+*DefaultPageSize: A4
+*PageSize Letter/US Letter: "%% FoomaticRIPOptionSetting: PageSize=Letter"
+*FoomaticRIPOptionSetting PageSize=Letter: " -dDEVICEWIDTHPOINTS=612 -dDEVICEHEIGHTPOINTS=792"
+*End
+*PageSize A4/A4: "%% FoomaticRIPOptionSetting: PageSize=A4"
+*FoomaticRIPOptionSetting PageSize=A4: " -dDEVICEWIDTHPOINTS=595 -dDEVICEHEIGHTPOINTS=842"
+*End
+*PageSize A5/A5: "%% FoomaticRIPOptionSetting: PageSize=A5"
+*FoomaticRIPOptionSetting PageSize=A5: " -dDEVICEWIDTHPOINTS=421 -dDEVICEHEIGHTPOINTS=595"
+*End
+*PageSize B5/B5 (JIS): "%% FoomaticRIPOptionSetting: PageSize=B5"
+*FoomaticRIPOptionSetting PageSize=B5: " -dDEVICEWIDTHPOINTS=516 -dDEVICEHEIGHTPOINTS=729"
+*End
+*PageSize Env10/Envelope #10: "%% FoomaticRIPOptionSetting: PageSize=Env10"
+*FoomaticRIPOptionSetting PageSize=Env10: " -dDEVICEWIDTHPOINTS=297 -dDEVICEHEIGHTPOINTS=684"
+*End
+*PageSize EnvC5/Envelope C5: "%% FoomaticRIPOptionSetting: PageSize=EnvC5"
+*FoomaticRIPOptionSetting PageSize=EnvC5: " -dDEVICEWIDTHPOINTS=459 -dDEVICEHEIGHTPOINTS=649"
+*End
+*PageSize EnvDL/Envelope DL: "%% FoomaticRIPOptionSetting: PageSize=EnvDL"
+*FoomaticRIPOptionSetting PageSize=EnvDL: " -dDEVICEWIDTHPOINTS=312 -dDEVICEHEIGHTPOINTS=624"
+*End
+*PageSize EnvISOB5/Envelope B5: "%% FoomaticRIPOptionSetting: PageSize=EnvISOB5"
+*FoomaticRIPOptionSetting PageSize=EnvISOB5: " -dDEVICEWIDTHPOINTS=499 -dDEVICEHEIGHTPOINTS=709"
+*End
+*PageSize EnvMonarch/Envelope Monarch: "%% FoomaticRIPOptionSetting: PageSize=EnvMonarch"
+*FoomaticRIPOptionSetting PageSize=EnvMonarch: " -dDEVICEWIDTHPOINTS=279 -dDEVICEHEIGHTPOINTS=540"
+*End
+*PageSize Executive/Executive: "%% FoomaticRIPOptionSetting: PageSize=Executive"
+*FoomaticRIPOptionSetting PageSize=Executive: " -dDEVICEWIDTHPOINTS=522 -dDEVICEHEIGHTPOINTS=756"
+*End
+*PageSize Legal/US Legal: "%% FoomaticRIPOptionSetting: PageSize=Legal"
+*FoomaticRIPOptionSetting PageSize=Legal: " -dDEVICEWIDTHPOINTS=612 -dDEVICEHEIGHTPOINTS=1008"
+*End
+*CloseUI: *PageSize
+
+*OpenUI *PageRegion: PickOne
+*OrderDependency: 100 AnySetup *PageRegion
+*DefaultPageRegion: A4
+*PageRegion Letter/US Letter: "%% FoomaticRIPOptionSetting: PageSize=Letter"
+*PageRegion A4/A4: "%% FoomaticRIPOptionSetting: PageSize=A4"
+*PageRegion A5/A5: "%% FoomaticRIPOptionSetting: PageSize=A5"
+*PageRegion B5/B5 (JIS): "%% FoomaticRIPOptionSetting: PageSize=B5"
+*PageRegion Env10/Envelope #10: "%% FoomaticRIPOptionSetting: PageSize=Env10"
+*PageRegion EnvC5/Envelope C5: "%% FoomaticRIPOptionSetting: PageSize=EnvC5"
+*PageRegion EnvDL/Envelope DL: "%% FoomaticRIPOptionSetting: PageSize=EnvDL"
+*PageRegion EnvISOB5/Envelope B5: "%% FoomaticRIPOptionSetting: PageSize=EnvISOB5"
+*PageRegion EnvMonarch/Envelope Monarch: "%% FoomaticRIPOptionSetting: PageSize=EnvMonarch"
+*PageRegion Executive/Executive: "%% FoomaticRIPOptionSetting: PageSize=Executive"
+*PageRegion Legal/US Legal: "%% FoomaticRIPOptionSetting: PageSize=Legal"
+*CloseUI: *PageRegion
+
+*DefaultImageableArea: A4
+*ImageableArea Letter/US Letter: "18 36 594 756"
+*ImageableArea A4/A4: "18 36 577 806"
+*ImageableArea A5/A5: "18 36 403 559"
+*ImageableArea B5/B5 (JIS): "18 36 498 693"
+*ImageableArea Env10/Envelope #10: "18 36 279 648"
+*ImageableArea EnvC5/Envelope C5: "18 36 441 613"
+*ImageableArea EnvDL/Envelope DL: "18 36 294 588"
+*ImageableArea EnvISOB5/Envelope B5: "18 36 481 673"
+*ImageableArea EnvMonarch/Envelope Monarch: "18 36 261 504"
+*ImageableArea Executive/Executive: "18 36 504 720"
+*ImageableArea Legal/US Legal: "18 36 594 972"
+
+*DefaultPaperDimension: A4
+*PaperDimension Letter/US Letter: "612 792"
+*PaperDimension A4/A4: "595 842"
+*PaperDimension A5/A5: "420 595"
+*PaperDimension B5/B5 (JIS): "516 729"
+*PaperDimension Env10/Envelope #10: "297 684"
+*PaperDimension EnvC5/Envelope C5: "459 649"
+*PaperDimension EnvDL/Envelope DL: "312 624"
+*PaperDimension EnvISOB5/Envelope B5: "499 709"
+*PaperDimension EnvMonarch/Envelope Monarch: "279 540"
+*PaperDimension Executive/Executive: "522 756"
+*PaperDimension Legal/US Legal: "612 1008"
+
+
+*JCLOpenUI *InputSlot: PickOne
+*OrderDependency: 19 JCLSetup *InputSlot
+*DefaultInputSlot: AutoSelect
+*InputSlot AutoSelect/<4175746f2053656c656374206279205072696e746572>: "@PJL SET SOURCETRAY = AUTO<0A>"
+*InputSlot Tray1/<5472617931>: "@PJL SET SOURCETRAY = TRAY1<0A>"
+
+
+
+
+
+*JCLCloseUI: *InputSlot
+
+*JCLOpenUI *TonerSaveMode/Toner Save: PickOne
+*DefaultTonerSaveMode: OFF
+*OrderDependency: 10 JCLSetup  *TonerSaveMode
+*TonerSaveMode OFF/Off: "@PJL SET ECONOMODE = OFF<0A>"
+*TonerSaveMode ON/On: "@PJL SET ECONOMODE = ON<0A>"
+*JCLCloseUI: *TonerSaveMode
+
+*JCLOpenUI *BrMediaType/MediaType: PickOne
+*OrderDependency: 28 JCLSetup *BrMediaType
+*DefaultBrMediaType: PLAIN
+*BrMediaType PLAIN/Plain Paper: "@PJL SET MEDIATYPE = REGULAR<0A>"
+*BrMediaType THIN/Thin Paper: "@PJL SET MEDIATYPE = THIN<0A>"
+*BrMediaType THICK/Thick Paper: "@PJL SET MEDIATYPE = THICK<0A>"
+*BrMediaType THICKERPAPER2/Thicker Paper: "@PJL SET MEDIATYPE = THICK2<0A>"
+*BrMediaType BOND/Bond Paper: "@PJL SET MEDIATYPE = BOND<0A>"
+*BrMediaType ENV/Envelopes: "@PJL SET MEDIATYPE = ENVELOPES<0A>"
+*BrMediaType ENVTHICK/Env. Thick: "@PJL SET MEDIATYPE = ENVTHICK<0A>"
+*BrMediaType ENVTHIN/Env. Thin: "@PJL SET MEDIATYPE = ENVTHIN<0A>"
+*JCLCloseUI: *BrMediaType
+
+
+*JCLOpenUI *Duplex/Double-Sided Printing: PickOne
+*OrderDependency: 100 JCLSetup *Duplex
+*DefaultDuplex: None
+*Duplex DuplexNoTumble/On (Flip on Long Edge): "@PJL SET DUPLEX=ON<0A>@PJL SET BINDING=LONGEDGE<0A>"
+*Duplex DuplexTumble/On (Flip on Short Edge): "@PJL SET DUPLEX=ON<0A>@PJL SET BINDING=SHORTEDGE<0A>"
+*Duplex None/Off: "@PJL SET DUPLEX=OFF<0A>"
+*JCLCloseUI: *Duplex
+
+
+*OpenUI *Resolution/Resolution: PickOne
+*FoomaticRIPOption Resolution: enum CmdLine A
+*OrderDependency: 110 AnySetup *Resolution
+*DefaultResolution: 600x600dpi
+*Resolution 75x75dpi/75x75 DPI: "%% FoomaticRIPOptionSetting: Resolution=75x75dpi"
+*FoomaticRIPOptionSetting Resolution=75x75dpi: " -r75x75"
+*Resolution 150x150dpi/150x150 DPI: "%% FoomaticRIPOptionSetting: Resolution=150x150dpi"
+*FoomaticRIPOptionSetting Resolution=150x150dpi: " -r150x150"
+*Resolution 300x300dpi/300x300 DPI: "%% FoomaticRIPOptionSetting: Resolution=300x300dpi"
+*FoomaticRIPOptionSetting Resolution=300x300dpi: " -r300x300"
+*Resolution 600x600dpi/600x600 DPI: "%% FoomaticRIPOptionSetting: Resolution=600x600dpi"
+*FoomaticRIPOptionSetting Resolution=600x600dpi: " -r600x600"
+*CloseUI: *Resolution
+
+*CloseGroup: General
+
+*% Generic boilerplate PPD stuff as standard PostScript fonts and so on
+*DefaultFont: Courier
+*Font AvantGarde-Book: Standard "(001.006S)" Standard ROM
+*Font AvantGarde-BookOblique: Standard "(001.006S)" Standard ROM
+*Font AvantGarde-Demi: Standard "(001.007S)" Standard ROM
+*Font AvantGarde-DemiOblique: Standard "(001.007S)" Standard ROM
+*Font Bookman-Demi: Standard "(001.004S)" Standard ROM
+*Font Bookman-DemiItalic: Standard "(001.004S)" Standard ROM
+*Font Bookman-Light: Standard "(001.004S)" Standard ROM
+*Font Bookman-LightItalic: Standard "(001.004S)" Standard ROM
+*Font Courier: Standard "(002.004S)" Standard ROM
+*Font Courier-Bold: Standard "(002.004S)" Standard ROM
+*Font Courier-BoldOblique: Standard "(002.004S)" Standard ROM
+*Font Courier-Oblique: Standard "(002.004S)" Standard ROM
+*Font Helvetica: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Bold: Standard "(001.007S)" Standard ROM
+*Font Helvetica-BoldOblique: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Narrow-Bold: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow-BoldOblique: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow-Oblique: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Oblique: Standard "(001.006S)" Standard ROM
+*Font NewCenturySchlbk-Bold: Standard "(001.009S)" Standard ROM
+*Font NewCenturySchlbk-BoldItalic: Standard "(001.007S)" Standard ROM
+*Font NewCenturySchlbk-Italic: Standard "(001.006S)" Standard ROM
+*Font NewCenturySchlbk-Roman: Standard "(001.007S)" Standard ROM
+*Font Palatino-Bold: Standard "(001.005S)" Standard ROM
+*Font Palatino-BoldItalic: Standard "(001.005S)" Standard ROM
+*Font Palatino-Italic: Standard "(001.005S)" Standard ROM
+*Font Palatino-Roman: Standard "(001.005S)" Standard ROM
+*Font Symbol: Special "(001.007S)" Special ROM
+*Font Times-Bold: Standard "(001.007S)" Standard ROM
+*Font Times-BoldItalic: Standard "(001.009S)" Standard ROM
+*Font Times-Italic: Standard "(001.007S)" Standard ROM
+*Font Times-Roman: Standard "(001.007S)" Standard ROM
+*Font ZapfChancery-MediumItalic: Standard "(001.007S)" Standard ROM
+*Font ZapfDingbats: Special "(001.004S)" Standard ROM
