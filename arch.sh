@@ -59,6 +59,7 @@ fdisk -l /dev/sda
 	swapon /dev/sda1
 	mkfs.ext4 /dev/sda2
 	mount /dev/sda2 /mnt
+lsblk
 pacstrap -K /mnt base linux linux-firmware intel-ucode helix grub efibootmgr reflector man-pages man-db sudo networkmanager rsync cifs-utils xf86-video-intel dosfstools ntfsprogs exfat-utils terminus-font
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
@@ -97,16 +98,19 @@ ping archlinux.org
 	nmcli device wifi connect [name] password [pw]
 	nmcli connection show
 	nmcli device
+	ping archlinux.org
 sudo timedatectl set-timezone America/Los_Angeles
 sudo timedateclt set-ntp true
 sudo timedatectl status
 sudo pacman -Syu
-sudo pacman -S vlc ufw cups curl simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr git # firefox spotify-launcher
+sudo pacman -S vlc ufw cups simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr git base-devel # firefox spotify-launcher
 mkdir ~/src
 cd ~/src
-git clone git@github.com:Mason-Perdue/Linux-Config.git
+git clone https://github.com/Mason-Perdue/Linux-Config.git
+mv Linux-Config/* .
+rm -r Linux-Config
 # for Chrome
-	cd ~/src
+	# https://aur.archlinux.org/packages/google-chrome
 	curl -LO https://aur.archlinux.org/cgit/aur.git/snapshot/google-chrome.tar.gz
 	tar -xvf google-chrome.tar.gz
 	rm google-chrome.tar.gz
@@ -114,9 +118,9 @@ git clone git@github.com:Mason-Perdue/Linux-Config.git
 	makepkg -sirc
 	cd ~/src
 	rm -r google-chrome
-cp ~/src/.bashrc ~/.bashrc
+cp ~/src/dotbashrc ~/.bashrc
 source ~/.bashrc
-sudo cp ~/src/-etc-pam.d-login /etc/pam.d/login
+sudo cp ~/src/login /etc/pam.d/login
 mkdir ~/.config/alacritty/
 cp ~/src/dotconfig/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 mkdir ~/.config/fuzzel/
@@ -127,6 +131,7 @@ mkdir ~/.config/hypr/
 cp ~/src/dotconfig/hypr/hypridle.conf ~/.config/hypr/hypridle.conf
 mkdir ~/.config/labwc/
 cp -r ~/src/dotconfig/labwc/scripts ~/.config/labwc/scripts
+chmod +x ~/.config/labwc/scripts/*
 cp ~/src/dotconfig/labwc/autstart ~/.config/labwc/autostart
 # change screen resolution from --preferred to --mode 1366x768@59.790001Hz if needed
 cp ~/src/dotconfig/labwc/menu.xml ~/.config/labwc/menu.xml
