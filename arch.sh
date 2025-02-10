@@ -152,5 +152,6 @@ sudo systemctl enable --now cups.service
 # sudo systemctl enable --now bluetooth
 sudo gpasswd -a masonp seat
 sudo systemctl enable --now seatd.service
+pamixer --unmute
 paclean
 sudo reboot now
