@@ -2,10 +2,10 @@
 # Configuration Script for KitCom
 
 sudo timedatectl set-timezone America/Los_Angeles
-sudo timedateclt set-ntp true
+sudo timedatectl set-ntp true
 sudo timedatectl status
-echo "y" | sudo pacman -Syu
-echo "y" | sudo pacman -S vlc ufw cups simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr git base-devel man-pages man-db cifs-utils dosfstools ntfsprogs exfat-utils # firefox spotify-launcher
+sudo pacman -Syu
+udo pacman -S vlc ufw cups simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr base-devel man-pages man-db cifs-utils dosfstools ntfsprogs exfat-utils # firefox spotify-launcher
 cd /home/family/Linux-Config
 # https://aur.archlinux.org/packages/google-chrome
 curl -LO https://aur.archlinux.org/cgit/aur.git/snapshot/google-chrome.tar.gz
@@ -17,6 +17,7 @@ cd /home/family/Linux-Config
 rm -r google-chrome
 cp /home/family/Linux-Config/dotbashrc /home/family/.bashrc
 sudo cp /home/family/Linux-Config/login /etc/pam.d/login
+mkdir /home/family/.config/
 mkdir /home/family/.config/alacritty/
 cp /home/family/Linux-Config/dotconfig/alacritty/alacritty.toml /home/family/.config/alacritty/alacritty.toml
 mkdir /home/family/.config/fuzzel/

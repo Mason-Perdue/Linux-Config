@@ -15,20 +15,20 @@
 	# Log files
 	# Background image
 	# https://192.168.0.30:80/WebServices/Device
+	# https://louwrentius.com/recycle-your-old-laptop-display-and-turn-it-into-a-monitor.html
 
 ip a
-ping archlinux.org
 rfkill list
 timedatectl
 # for wifi
-	iwctl
+iwctl
 	device list
 	station [device] scan
 	station [device] get-networks
 	station [device] connect [wifi name]
 	# enter passphrase
 	exit
-	ping archlinux.org
+ping archlinux.org
 fdisk -l
 setfont ter-132b	# setfont to undo
 cat /sys/firmware/efi/fw_platform_size	# 64 or 32 for UEFI; nothing for Legacy BIOS
@@ -67,7 +67,7 @@ fdisk -l /dev/sda
 	mkfs.ext4 /dev/sda2
 	mount /dev/sda2 /mnt
 lsblk
-pacstrap -K /mnt base linux linux-firmware intel-ucode helix grub efibootmgr reflector sudo networkmanager rsync xf86-video-intel  terminus-font
+pacstrap -K /mnt base linux linux-firmware intel-ucode helix grub efibootmgr reflector sudo networkmanager rsync xf86-video-intel terminus-font git
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/US/Pacific /etc/localtime
