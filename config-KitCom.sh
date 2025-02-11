@@ -29,7 +29,7 @@ cp /home/family/Linux-Config/dotconfig/hypr/hypridle.conf /home/family/.config/h
 mkdir /home/family/.config/labwc/
 cp -r /home/family/Linux-Config/dotconfig/labwc/scripts /home/family/.config/labwc/scripts
 chmod +x /home/family/.config/labwc/scripts/*
-cp /home/family/Linux-Config/dotconfig/labwc/autstart /home/family/.config/labwc/autostart
+cp /home/family/Linux-Config/dotconfig/labwc/autostart /home/family/.config/labwc/autostart
 # change screen resolution from --preferred to --mode 1366x768@59.790001Hz if needed
 cp /home/family/Linux-Config/dotconfig/labwc/menu.xml /home/family/.config/labwc/menu.xml
 cp /home/family/Linux-Config/dotconfig/labwc/rc.xml /home/family/.config/labwc/rc.xml
@@ -47,7 +47,7 @@ sudo systemctl status ufw
 sudo ufw status verbose
 sudo systemctl enable --now cups.service
 # sudo systemctl enable --now bluetooth
-sudo gpasswd -a masonp seat
+sudo gpasswd -a family seat
 sudo systemctl enable --now seatd.service
 pamixer --unmute
 sudo reboot now
