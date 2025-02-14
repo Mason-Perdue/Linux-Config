@@ -11,7 +11,7 @@ echo ""
 
 echo "// Installing Packages //"
 sudo pacman -Syu
-sudo pacman -S vlc ufw cups simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr base-devel man-pages man-db cifs-utils dosfstools ntfsprogs exfat-utils brightnessctl
+sudo pacman -S vlc ufw cups simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr base-devel man-pages man-db cifs-utils dosfstools ntfsprogs exfat-utils brightnessctl stow
 
 echo "// Install Firefox and Spotify (y/n): "
 read check
@@ -40,29 +40,12 @@ then
 fi
 echo ""
 
-echo "// Moving Configuration Files //"
-cp ~/Linux-Config/dotbashrc ~/.bashrc
+echo "// Stowing Configuration Files //"
+cd ~/Linux-Config/dotconfig
+stow *
 sudo cp ~/Linux-Config/login /etc/pam.d/login
-mkdir ~/.config/
-mkdir ~/.config/alacritty/
-cp ~/Linux-Config/dotconfig/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-mkdir ~/.config/fuzzel/
-cp ~/Linux-Config/dotconfig/fuzzel/fuzzel.ini ~/.config/fuzzel/fuzzel.ini
-mkdir ~/.config/helix/
-cp ~/Linux-Config/dotconfig/helix/config.toml ~/.config/helix/config.toml
-mkdir ~/.config/hypr/
-cp ~/Linux-Config/dotconfig/hypr/hypridle.conf ~/.config/hypr/hypridle.conf
-mkdir ~/.config/labwc/
-cp -r ~/Linux-Config/dotconfig/labwc/scripts ~/.config/labwc/scripts
 chmod +x ~/.config/labwc/scripts/*
-cp ~/Linux-Config/dotconfig/labwc/autostart ~/.config/labwc/autostart
 echo "// Edit ~/.config/labwc/autostart to Change Screen Resolution //"
-cp ~/Linux-Config/dotconfig/labwc/menu.xml ~/.config/labwc/menu.xml
-cp ~/Linux-Config/dotconfig/labwc/rc.xml ~/.config/labwc/rc.xml
-mkdir ~/.config/waybar/
-cp ~/Linux-Config/dotconfig/waybar/config.jsonc ~/.config/waybar/config.jsonc
-cp ~/Linux-Config/dotconfig/waybar/style.css ~/.config/waybar/style.css
-cp ~/Linux-Config/Background.jpg ~/.config/Background.jpg
 echo ""
 
 echo "// Configuring Firewall Rules //"
