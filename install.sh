@@ -7,13 +7,9 @@
 	# https://wiki.archlinux.org/title/VirtualBox
 	# https://wiki.archlinux.org/title/Cron
 	# https://wiki.archlinux.org/title/Improving_performance
-	# Systemd bootloader 
-	# Pause media before screen lock 
-	# Grub or tty screen resolution 
-	# Wlr-randr
-	# Links/stow
+	# Pause media before screen lock
+	# Grub or tty screen resolution
 	# Log files
-	# Background image
 	# https://192.168.0.30:80/WebServices/Device
 	# https://louwrentius.com/recycle-your-old-laptop-display-and-turn-it-into-a-monitor.html
 
@@ -77,7 +73,7 @@ helix /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "FONT=ter-132b" >  /etc/vconsole.conf
-echo "TVCom" > /etc/hostname	# or "KitCom"
+echo "TVCom" > /etc/hostname	# or "KitCom" or "masonVM"
 # for UEFI
 	grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot
 	grub-mkconfig -o /boot/grub/grub.cfg
@@ -106,5 +102,5 @@ ping archlinux.org
 	ping archlinux.org
 git clone https://github.com/Mason-Perdue/Linux-Config.git
 cd Linux-Config
-chmod +x config-KitCom.sh	# or config-TVCom.sh
-./config-KitCom.sh > log.txt	# or config-TVCom.sh
+chmod +x config.sh
+./config.sh

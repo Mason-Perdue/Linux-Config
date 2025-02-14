@@ -10,7 +10,7 @@
 
 window#waybar {
     background: #000000;
-    border: 0px solid #3c3836;
+    border: 0px solid #000000;
 }
 
 #clock,
@@ -22,7 +22,7 @@ window#waybar {
     margin: 6px 6px 6px 0px;
     padding: 2px 2px;
     background-color: #000000;
-    border: 0px solid #434a4c;
+    border: 0px solid #000000;
     color: #ffffff;
 }
 
