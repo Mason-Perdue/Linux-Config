@@ -13,6 +13,7 @@
 	# https://192.168.0.30:80/WebServices/Device
 	# https://louwrentius.com/recycle-your-old-laptop-display-and-turn-it-into-a-monitor.html
 
+# VirtualBox: 12228MB Memory + 15 CPUs + 50GB VHD + PS/2 Mouse + 16MB Video Memory + 3D Acceleeration USB 3.0
 ip a
 rfkill list
 timedatectl
@@ -46,7 +47,7 @@ fdisk /dev/sda
 	n
 	+8000M
 	t
-	82	# ?
+	82
 	n
 	w
 fdisk -l /dev/sda
@@ -63,7 +64,7 @@ fdisk -l /dev/sda
 	mkfs.ext4 /dev/sda2
 	mount /dev/sda2 /mnt
 lsblk
-pacstrap -K /mnt base linux linux-firmware intel-ucode helix grub efibootmgr reflector sudo networkmanager rsync xf86-video-intel terminus-font git
+pacstrap -K /mnt base linux linux-firmware intel-ucode helix grub reflector sudo networkmanager rsync xf86-video-intel terminus-font git # efibootmgr
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/US/Pacific /etc/localtime
@@ -100,21 +101,23 @@ ping archlinux.org
 	nmcli connection show
 	nmcli device
 	ping archlinux.org
-git clone https://github.com/Mason-Perdue/Linux-Config.git
 sudo timedatectl set-timezone America/Los_Angeles
 sudo timedatectl set-ntp true
 sudo timedatectl status
 sudo pacman -Syu
 sudo pacman -S vlc ufw cups simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr base-devel man-pages man-db cifs-utils dosfstools ntfsprogs exfat-utils brightnessctl stow # firefox spotify-launcher
-# https://aur.archlinux.org/packages/google-chrome
-curl -LO https://aur.archlinux.org/cgit/aur.git/snapshot/google-chrome.tar.gz
-tar -xvf google-chrome.tar.gz
-rm google-chrome.tar.gz
-cd google-chrome
-makepkg -sirc
+git clone https://github.com/Mason-Perdue/Linux-Config.git
 cd ~/Linux-Config
-rm -r google-chrome
+# https://aur.archlinux.org/packages/google-chrome
+# curl -LO https://aur.archlinux.org/cgit/aur.git/snapshot/google-chrome.tar.gz
+# tar -xvf google-chrome.tar.gz
+# rm google-chrome.tar.gz
+# cd google-chrome
+# makepkg -sirc
+# cd ~/Linux-Config
+# rm -r google-chrome
 cd ~/Linux-Config/dotconfig
+rm ~/.bashrc
 stow -t ~/ --restow *
 sudo cp ~/Linux-Config/login /etc/pam.d/login
 chmod +x ~/.config/labwc/scripts/*
