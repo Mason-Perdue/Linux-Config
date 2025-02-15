@@ -4,7 +4,6 @@
 # DO
 	# encrypt disk & lock BIOS
 	# printing & bluetooth
-	# https://wiki.archlinux.org/title/VirtualBox
 	# https://wiki.archlinux.org/title/Cron
 	# https://wiki.archlinux.org/title/Improving_performance
 	# Pause media before screen lock
@@ -13,11 +12,9 @@
 	# https://192.168.0.30:80/WebServices/Device
 	# https://louwrentius.com/recycle-your-old-laptop-display-and-turn-it-into-a-monitor.html
 	# sane
-	# pactl not pamixer - pactl list - set-default-sink 0
-	# backup dotfiles
 	# add stow and git to autostart
 
-# VirtualBox: 12228MB Memory + 15 CPUs + 50GB VHD + PS/2 Mouse + 16MB Video Memory + 3D Acceleeration USB 3.0
+# VirtualBox: 12228MB Memory + 15 CPUs + 50GB VHD + PS/2 Mouse + 16MB Video Memory + 3D Acceleration USB 3.0
 ip a
 rfkill list
 timedatectl
@@ -126,6 +123,8 @@ rm ~/.bashrc
 stow -t ~/ --restow --dotfiles *
 sudo cp ~/Linux-Config/login /etc/pam.d/login
 chmod +x ~/.config/labwc/scripts/*
+pactl list
+pactl set-default-sink 0
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 # sudo ufw allow from 192.168.0.0/24 to any port 753 proto tcp
