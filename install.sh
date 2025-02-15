@@ -12,6 +12,10 @@
 	# Log files
 	# https://192.168.0.30:80/WebServices/Device
 	# https://louwrentius.com/recycle-your-old-laptop-display-and-turn-it-into-a-monitor.html
+	# sane
+	# pactl not pamixer - pactl list - set-default-sink 0
+	# backup dotfiles
+	# add stow and git to autostart
 
 # VirtualBox: 12228MB Memory + 15 CPUs + 50GB VHD + PS/2 Mouse + 16MB Video Memory + 3D Acceleeration USB 3.0
 ip a
@@ -32,6 +36,7 @@ cat /sys/firmware/efi/fw_platform_size	# 64 or 32 for UEFI; nothing for Legacy B
 fdisk /dev/sda
 # for UEFI
 	d
+	g
 	n
 	+1000M
 	t
@@ -44,6 +49,7 @@ fdisk /dev/sda
 	w
 # for Legacy BIOS
 	d
+	o
 	n
 	+8000M
 	t
@@ -72,9 +78,9 @@ hwclock --systohc
 helix /etc/locale.gen
 	# uncomment "en_US.UTF-8 UTF-8"
 locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
-echo "FONT=ter-132b" >  /etc/vconsole.conf
-echo "TVCom" > /etc/hostname	# or "KitCom" or "masonVM"
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+echo FONT=ter-132b > /etc/vconsole.conf
+echo TVCom > /etc/hostname	# or "KitCom" or "masonVM" or "masonDT"
 # for UEFI
 	grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot
 	grub-mkconfig -o /boot/grub/grub.cfg
@@ -82,7 +88,6 @@ echo "TVCom" > /etc/hostname	# or "KitCom" or "masonVM"
 	grub-install --target=i386-pc /dev/sda
 	grub-mkconfig -o /boot/grub/grub.cfg
 pacman -Syu
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 reflector -c "US" -f 12 -l 10 -n 12 --save /etc/pacman.d/mirrorlist
 cat /etc/pacman.d/mirrorlist
 passwd
@@ -118,7 +123,7 @@ cd ~/Linux-Config
 # rm -r google-chrome
 cd ~/Linux-Config/dotconfig
 rm ~/.bashrc
-stow -t ~/ --restow *
+stow -t ~/ --restow --dotfiles *
 sudo cp ~/Linux-Config/login /etc/pam.d/login
 chmod +x ~/.config/labwc/scripts/*
 sudo ufw default deny incoming
@@ -126,8 +131,8 @@ sudo ufw default allow outgoing
 # sudo ufw allow from 192.168.0.0/24 to any port 753 proto tcp
 # sudo ufw allow CIFS
 sudo ufw enable
-sudo systemctl enable --now ufw
-sudo systemctl status ufw
+sudo systemctl enable --now ufw.service
+sudo systemctl status ufw.service
 sudo ufw status verbose
 sudo systemctl enable --now cups.service
 sudo systemctl enable --now seatd.service
@@ -135,3 +140,4 @@ sudo systemctl enable --now seatd.service
 sudo gpasswd -a $USER seat
 sudo gpasswd -a $USER video
 sudo reboot now
+
