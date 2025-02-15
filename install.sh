@@ -12,7 +12,6 @@
 	# https://192.168.0.30:80/WebServices/Device
 	# https://louwrentius.com/recycle-your-old-laptop-display-and-turn-it-into-a-monitor.html
 	# sane
-	# add stow and git to autostart
 
 # VirtualBox: 12228MB Memory + 15 CPUs + 50GB VHD + PS/2 Mouse + 16MB Video Memory + 3D Acceleration USB 3.0
 ip a
