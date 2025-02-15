@@ -3,14 +3,8 @@
 
 # DO
 	# encrypt disk & lock BIOS
-	# printing & bluetooth
 	# https://wiki.archlinux.org/title/Improving_performance
-	# Pause media before screen lock
-	# Grub or tty screen resolution
-	# Log files
-	# https://192.168.0.30:80/WebServices/Device
-	# https://louwrentius.com/recycle-your-old-laptop-display-and-turn-it-into-a-monitor.html
-	# sane
+	# server
 
 # VirtualBox: 12228MB Memory + 15 CPUs + 50GB VHD + PS/2 Mouse + 16MB Video Memory + 3D Acceleration USB 3.0
 # download from https://mirrors.ocf.berkeley.edu/archlinux/iso
@@ -107,7 +101,7 @@ sudo timedatectl set-timezone America/Los_Angeles
 sudo timedatectl set-ntp true
 sudo timedatectl status
 sudo pacman -Syu
-sudo pacman -S vlc ufw cups simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr base-devel man-pages man-db cifs-utils dosfstools ntfsprogs exfat-utils brightnessctl stow # firefox spotify-launcher
+sudo pacman -S vlc ufw cups simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr base-devel man-pages man-db cifs-utils dosfstools ntfsprogs exfat-utils brightnessctl stow cups-pdf # firefox spotify-launcher
 git clone https://github.com/Mason-Perdue/Linux-Config.git
 cd ~/Linux-Config
 # https://aur.archlinux.org/packages/google-chrome
@@ -138,5 +132,12 @@ sudo systemctl enable --now seatd.service
 # sudo systemctl enable --now bluetooth
 sudo gpasswd -a $USER seat
 sudo gpasswd -a $USER video
+sudo groupadd lpadmin
+sudo gpasswd -a $USER lpadmin
+# open cups > add printer > lpd://192.168.0.30/queue
 sudo reboot now
 
+TVCom
+grub > c > videoinfo
+sudo helix /etc/default/grub.cfg
+edit according to https://www.gnu.org/software/grub/manual/html_node/Simple-Configuration.html

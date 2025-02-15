@@ -65,6 +65,7 @@ reloadConfig() {
 	 git clone https://github.com/Mason-Perdue/Linux-Config.git
 	 cd ~/Linux-Config/dot-config/
 	 stow -t ~/ --restow --dotfiles *
+	 chmod +x ~/.config/labwc/scripts/*
 	 echo "Completed: Edit ~/.config/labwc/autostart to change display resolution if needed."
 }
 
