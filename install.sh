@@ -4,7 +4,6 @@
 # DO
 	# encrypt disk & lock BIOS
 	# printing & bluetooth
-	# https://wiki.archlinux.org/title/Cron
 	# https://wiki.archlinux.org/title/Improving_performance
 	# Pause media before screen lock
 	# Grub or tty screen resolution
@@ -14,6 +13,8 @@
 	# sane
 
 # VirtualBox: 12228MB Memory + 15 CPUs + 50GB VHD + PS/2 Mouse + 16MB Video Memory + 3D Acceleration USB 3.0
+# download from https://mirrors.ocf.berkeley.edu/archlinux/iso
+# sudo dd bs=4M if=archlinux-x86_46.iso of=/dev/disk/by-id/usb-_USB_DISK_...-0:0 conv=fsync oflag=direct status=progress
 ip a
 rfkill list
 timedatectl
