@@ -4,7 +4,6 @@
 # DO
 	# encrypt disk & lock BIOS
 	# https://wiki.archlinux.org/title/Improving_performance
-	# server
 
 # download from https://mirrors.ocf.berkeley.edu/archlinux/iso
 # sudo dd bs=4M if=archlinux-x86_46.iso of=/dev/disk/by-id/usb-_USB_DISK_...-0:0 conv=fsync oflag=direct status=progress
@@ -135,9 +134,3 @@ sudo groupadd lpadmin
 sudo gpasswd -a $USER lpadmin
 # open cups > add printer > lpd://192.168.0.30/queue
 sudo reboot now
-
-TVCom
-grub > c > videoinfo
-sudo helix /etc/default/grub.cfg
-edit according to https://www.gnu.org/software/grub/manual/html_node/Simple-Configuration.html
-grub-mkconfig -o /boot/grub/grub.cfg
