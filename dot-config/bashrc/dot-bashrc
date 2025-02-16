@@ -66,6 +66,7 @@ reloadConfig() {
 	 cd ~/Linux-Config/dot-config/
 	 stow -t ~/ --restow --dotfiles *
 	 chmod +x ~/.config/labwc/scripts/*
+	 cd ~/
 	 echo "Completed: Edit ~/.config/labwc/autostart to change display resolution if needed."
 }
 
