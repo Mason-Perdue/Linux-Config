@@ -1,5 +1,3 @@
-" ~/.vimrc
-
 colorscheme torte
 set nocompatible
 filetype on

@@ -4,6 +4,28 @@
 # DO
 	# encrypt disk & lock BIOS
 	# https://wiki.archlinux.org/title/Improving_performance
+	# systemd bootloader
+	# password manager
+
+# Installing in a VirtualBox guest
+
+# Installing NixOS into a VirtualBox guest is convenient for users who want to try NixOS without installing it on bare metal. If you want to set up a VirtualBox guest, follow these instructions:
+
+#     Add a New Machine in VirtualBox with OS Type “Linux / Other Linux”
+
+#     Base Memory Size: 768 MB or higher.
+
+#     New Hard Disk of 8 GB or higher.
+
+#     Mount the CD-ROM with the NixOS ISO (by clicking on CD/DVD-ROM)
+
+#     Click on Settings / System / Processor and enable PAE/NX
+
+#     Click on Settings / System / Acceleration and enable “VT-x/AMD-V” acceleration
+
+#     Click on Settings / Display / Screen and select VMSVGA as Graphics Controller
+
+#     Save the settings, start the virtual machine, and continue installation like normal
 
 # download from https://mirrors.ocf.berkeley.edu/archlinux/iso
 # sudo dd bs=4M if=archlinux-x86_46.iso of=/dev/disk/by-id/usb-_USB_DISK_...-0:0 conv=fsync oflag=direct status=progress
