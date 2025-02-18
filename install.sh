@@ -107,7 +107,7 @@ sudo timedatectl set-timezone America/Los_Angeles
 sudo timedatectl set-ntp true
 sudo timedatectl status
 sudo pacman -Syu
-sudo pacman -S vlc ufw cups simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr base-devel man-pages man-db cifs-utils dosfstools ntfsprogs exfat-utils brightnessctl stow cups-pdf # firefox spotify-launcher
+sudo pacman -S vlc ufw cups simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr base-devel man-pages man-db cifs-utils dosfstools ntfsprogs exfat-utils brightnessctl stow cups-pdf # firefox spotify-launcher veracrypt
 git clone https://github.com/Mason-Perdue/Linux-Config.git
 cd ~/Linux-Config
 # https://aur.archlinux.org/packages/google-chrome
