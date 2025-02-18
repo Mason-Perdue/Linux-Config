@@ -4,13 +4,11 @@
 # DO
 	# encrypt disk & lock BIOS
 	# https://wiki.archlinux.org/title/Improving_performance
-	# systemd bootloader
-	# password manager
 	# secure openssh
 
 # download from https://mirrors.ocf.berkeley.edu/archlinux/iso
 # sudo dd bs=4M if=archlinux-x86_46.iso of=/dev/disk/by-id/usb-_USB_DISK_...-0:0 conv=fsync oflag=direct status=progress
-# Arch Linux, ISO, 12GB Memory, 12 CPU, 50 GB HD (SSD), PS/2 Mouse, Bridged Adapter, USB 3.0, Full Screen
+# VirtualBox: Arch Linux, ISO, 12GB Memory, 12 CPU, 50 GB HD (SSD), PS/2 Mouse, Bridged Adapter, USB 3.0, Full Screen
 ip a
 rfkill list
 timedatectl
