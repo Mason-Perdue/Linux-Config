@@ -5,6 +5,8 @@
 	# encrypt disk & lock BIOS
 	# https://wiki.archlinux.org/title/Improving_performance
 	# secure openssh
+	# https://wiki.archlinux.org/title/Kernel_parameters#Parameter_list
+	# https://wiki.archlinux.org/title/VirtualBox/Install_Arch_Linux_as_a_guest
 
 # download from https://mirrors.ocf.berkeley.edu/archlinux/iso
 # sudo dd bs=4M if=archlinux-x86_46.iso of=/dev/disk/by-id/usb-_USB_DISK_...-0:0 conv=fsync oflag=direct status=progress
