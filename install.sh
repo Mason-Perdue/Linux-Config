@@ -6,10 +6,11 @@
 	# https://wiki.archlinux.org/title/Improving_performance
 	# systemd bootloader
 	# password manager
+	# secure openssh
 
 # download from https://mirrors.ocf.berkeley.edu/archlinux/iso
 # sudo dd bs=4M if=archlinux-x86_46.iso of=/dev/disk/by-id/usb-_USB_DISK_...-0:0 conv=fsync oflag=direct status=progress
-# VirtualBox: "Linux / Other Linux" 12MB Memory, 50 GB HD (SSD), ISO, Settings / System / Processor and enable PAE/NX, Settings / System / Acceleration and enable “VT-x/AMD-V” acceleration, Settings / Display / Screen and select VMSVGA as Graphics Controller
+# Arch Linux, ISO, 12GB Memory, 12 CPU, 50 GB HD (SSD), PS/2 Mouse, Bridged Adapter, USB 3.0, Full Screen
 ip a
 rfkill list
 timedatectl
@@ -62,12 +63,12 @@ fdisk -l /dev/sda
 	mkfs.ext4 /dev/sda2
 	mount /dev/sda2 /mnt
 lsblk
-pacstrap -K /mnt base linux linux-firmware intel-ucode helix reflector sudo networkmanager rsync xf86-video-intel terminus-font git # grub efibootmgr
+pacstrap -K /mnt base linux linux-firmware intel-ucode vim reflector sudo networkmanager rsync xf86-video-intel terminus-font git # grub efibootmgr
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/US/Pacific /etc/localtime
 hwclock --systohc
-helix /etc/locale.gen
+vim /etc/locale.gen
 	# uncomment "en_US.UTF-8 UTF-8"
 locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
@@ -90,7 +91,7 @@ cat /etc/pacman.d/mirrorlist
 passwd
 useradd -m masonp # or family
 passwd masonp	# or family
-EDITOR=helix visudo /etc/sudoers
+EDITOR=vim visudo /etc/sudoers
 	# add "masonp ALL=(ALL:ALL) ALL" or "family ALL=(ALL:ALL) ALL"
 systemctl enable NetworkManager.service
 exit
@@ -107,7 +108,7 @@ sudo timedatectl set-timezone America/Los_Angeles
 sudo timedatectl set-ntp true
 sudo timedatectl status
 sudo pacman -Syu
-sudo pacman -S vlc ufw cups simple-scan thunar htop xorg-xwayland alacritty fuzzel gnome-keyring grim gvfs hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp sshfs swaybg swaylock waybar wlr-randr base-devel man-pages man-db cifs-utils dosfstools ntfsprogs exfat-utils brightnessctl stow cups-pdf # firefox spotify-launcher veracrypt
+sudo pacman -S ufw htop gvfs sshfs base-devel man-pages man-db cifs-utils dosfstools ntfsprogs exfat-utils stow # vlc cups simple-scan thunar xorg-xwayland alacritty fuzzel gnome-keyring grim hypridle labwc pamixer pulseaudio pulseaudio-bluetooth seahorse slurp swaybg swaylock waybar wlr-randr brightnessctl cups-pdf # firefox spotify-launcher veracrypt # openssh
 git clone https://github.com/Mason-Perdue/Linux-Config.git
 cd ~/Linux-Config
 # https://aur.archlinux.org/packages/google-chrome
@@ -120,11 +121,15 @@ cd ~/Linux-Config
 # rm -r google-chrome
 cd ~/Linux-Config/dotconfig
 rm ~/.bashrc
-stow -t ~/ --restow --dotfiles *
+stow -t ~/ --restow --dotfiles * # bash vim
+# change autostart in ~/.bashrc if necessary
 sudo cp ~/Linux-Config/login /etc/pam.d/login
 chmod +x ~/.config/labwc/scripts/*
 pactl list
 pactl set-default-sink 0
+# sudo vim /etc/ssh/sshd.config
+	# Port 753
+	# PermitRootLogin no
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 # sudo ufw allow from 192.168.0.0/24 to any port 753 proto tcp
@@ -135,10 +140,18 @@ sudo systemctl status ufw.service
 sudo ufw status verbose
 sudo systemctl enable --now cups.service
 sudo systemctl enable --now seatd.service
+sudo systemctl enable --now sshd.service
 # sudo systemctl enable --now bluetooth
 sudo gpasswd -a $USER seat
 sudo gpasswd -a $USER video
 sudo groupadd lpadmin
 sudo gpasswd -a $USER lpadmin
 # open cups > add printer > lpd://192.168.0.30/queue
+# GRUB > c > videoinfo
+# sudo vim /etc/default/grub
+	# VM: GRUB_GFXMODE=1280x1024x32
+	# GRUB_TIMEOUT=2
+	# GRUB_TIMEOUT_STYLE=countdown
+	# Use ESC to see GRUB Menu during countdown
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot now
