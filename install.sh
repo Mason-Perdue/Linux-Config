@@ -123,8 +123,6 @@ stow -t ~/ --restow --dotfiles * # bash vim
 # change autostart in ~/.bashrc if necessary
 sudo cp ~/Linux-Config/login /etc/pam.d/login
 chmod +x ~/.config/labwc/scripts/*
-pactl list
-pactl set-default-sink 0
 # sudo vim /etc/ssh/sshd.config
 	# Port 753
 	# PermitRootLogin no
@@ -138,7 +136,7 @@ sudo systemctl status ufw.service
 sudo ufw status verbose
 sudo systemctl enable --now cups.service
 sudo systemctl enable --now seatd.service
-sudo systemctl enable --now sshd.service
+# sudo systemctl enable --now sshd.service
 # sudo systemctl enable --now bluetooth
 sudo gpasswd -a $USER seat
 sudo gpasswd -a $USER video
@@ -153,3 +151,5 @@ sudo gpasswd -a $USER lpadmin
 	# Use ESC to see GRUB Menu during countdown
 # sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo reboot now
+pactl list
+pactl set-default-sink 0
