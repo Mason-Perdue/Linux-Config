@@ -2,9 +2,7 @@
 ### DO NOT RUN ###
 
 # DO
-	# encrypt disk & lock BIOS
 	# https://wiki.archlinux.org/title/Improving_performance
-	# secure openssh
 	# https://wiki.archlinux.org/title/Kernel_parameters#Parameter_list
 	# https://wiki.archlinux.org/title/VirtualBox/Install_Arch_Linux_as_a_guest
 
