@@ -15,7 +15,6 @@
 
 # wsl
         # masonp
-        # ChromePhone%02
         sudo apt update
         sudo apt upgrade
         sudo apt autoremove
