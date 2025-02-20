@@ -11,7 +11,7 @@
         # Drive Encryption (LUKS) at Install + LVM?
         # systemd-boot vs grub
         # btrfs or snapshots?
-        # backup ssh keys
+        # backup ssh keys & git config
 
 # wsl
         # masonp
@@ -36,11 +36,13 @@
                 git config --global user.email "perduem08@gmail.com"
                 git config --global core.editor vim
                 git config --global init.defaultBranch main
+                git config --global gpg.format ssh
+                git config --global user.signingkey ~/.ssh/id_ed25519-GitHub.pub
                 git config --list
                 # git init
                 # git clone git@github.com:Mason-Perdue/repo.git
                 # git add .
-                # git commit -m "comment"
+                # git commit -S -m "comment"
                 # git log
                 # git remote add origin git@github.com:Mason-Perdue/repo.git
                 # git push -u origin main
@@ -55,4 +57,4 @@
                 # 1 GB EFI at Beginning
                 # 16 GB Swap at End
                 # Fill Rest with ext4
-        
+                
