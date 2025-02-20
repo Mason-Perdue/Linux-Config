@@ -73,7 +73,7 @@ reloadConfig() {
 	cd ~/
 	rm -rf Linux-Config
 	git clone https://github.com/Mason-Perdue/Linux-Config.git
-	cd ~/Linux-Config/dot-config/
+	cd ~/Linux-Config/config/
 	stow -t ~/ --restow --dotfiles *
 	cd ~/
 }
