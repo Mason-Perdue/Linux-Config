@@ -57,4 +57,18 @@
                 # 1 GB EFI at Beginning
                 # 16 GB Swap at End
                 # Fill Rest with ext4
-                
+        # masonp
+		sudo apt update
+	   sudo apt upgrade
+	sudo apt autoremove
+	sudo apt edit-sources	   
+	sudo apt purge vim-common vim-tiny
+	sudo apt install man vim kate git stow
+	rmdir Desktop Documents Music Pictures Public Templates Videos
+	git clone https://github.com/Mason-Perdue/Linux-Config.git
+	cd Linux-Config/config/
+	stow -t ~/ --restow *
+
+
+
+
