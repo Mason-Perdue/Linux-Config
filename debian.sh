@@ -23,9 +23,10 @@
         sudo apt update
         sudo apt purge vim-common vim-tiny
         sudo apt install man kate git vim stow
-        rm ~/.bashrc
+		rm ~/.bashrc
         stow -t ~/ --restow --dotfiles vim bash
-        # git setup
+        source ~/.bashrc
+		# git setup
                 ssh-keygen -t ed25519 -C "perduem08@gmail.com"
                 eval "$(ssh-agent -s)"
                 ssh-add ~/.ssh/id_ed25519-GitHub
