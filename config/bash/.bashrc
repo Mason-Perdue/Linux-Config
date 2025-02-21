@@ -46,17 +46,6 @@ bexe(){
 	./"$1.sh"
 }
 
-gitConfig(){
-	git config --global user.name "Mason-Perdue"
-	git config --global user.email "perduem08@gmail.com"
-	git config --global core.editor vim
-	git config --global init.defaultBranch main
-	git config --global gpg.format ssh
-	git config --global user.signingkey ~/.ssh/id_ed25519-GitHub.pub
-	git config --global commit.gpgsign true
-	git config --list
-}
-
 gitKey(){
 	eval "$(ssh-agent -s)"
 	ssh-add ~/.ssh/id_ed25519-GitHub

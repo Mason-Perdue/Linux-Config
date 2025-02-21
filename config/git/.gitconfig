@@ -1,0 +1,10 @@
+[user]
+	name = Mason-Perdue
+	email = perduem08@gmail.com
+	signingkey = /home/masonp/.ssh/id_ed25519-GitHub.pub
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
