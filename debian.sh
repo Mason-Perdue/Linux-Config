@@ -46,7 +46,7 @@
                 sudo apt autoremove
                 sudo apt edit-sources
         # remove software
-                sudo apt purge vim-common vim-tiny aisleriot emacsen-common evolution four-in-a-row hitori hoichess iagno libreoffice lightsoff lynx malcontent orca quadrapassel swell-foop synaptic tali yelp
+                sudo apt purge vim-common vim-tiny aisleriot evolution four-in-a-row hitori hoichess iagno libreoffice lightsoff lynx malcontent orca quadrapassel swell-foop synaptic tali
         # install software
                 sudo apt install man vim git stow
                 # https://www.spotify.com/us/download/linux/
