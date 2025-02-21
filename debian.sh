@@ -76,3 +76,18 @@
         # start new repo
                 git init
                 git remote add origin git@github.com:Mason-Perdue/[repo name].git
+        # force signing
+                git config --local commit.gpgsign true
+
+
+
+
+
+
+
+
+
+
+
+
+
