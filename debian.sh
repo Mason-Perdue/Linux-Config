@@ -17,7 +17,7 @@
         # remove software
                 sudo apt purge vim-common vim-tiny
         # add software
-                sudo apt install man kate git vim stow nmap texlive tree
+                sudo apt install man kate git vim stow nmap texlive tree htop
 	# config setup
                 rm ~/.bashrc
                 # copy ssh key files
