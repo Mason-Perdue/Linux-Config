@@ -2,10 +2,9 @@
         # Secure Boot + BIOS Passwords + LUKS/LVM? + BTRFS? + Snapshots?
         # pass & gpg
         # BIOS Passwords
-        # backup ssh keys & git config - share ssh keys? on usb?
+        # backup ssh keys on usb?
         # KitCom
-        # vim plugins or tmux
-		# alias pm='vim -c "set viminfo= nobackup nowritebackup noundofile noswapfile" ~/.passwords'
+		# alias pm='vim -c "set viminfo= nobackup nowritebackup noundofile noswapfile" ~/.passwords' or vim-redact-pass
 
 # WSL
         # install
@@ -20,7 +19,7 @@
                 sudo apt purge vim-common vim-tiny
         # add software
                 sudo apt install man kate git vim stow nmap texlive tree htop
-	# config setup
+        # config setup
                 rm ~/.bashrc
                 # copy ssh key files
                 eval "$(ssh-agent -s)"
