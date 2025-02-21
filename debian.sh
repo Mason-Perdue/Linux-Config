@@ -4,6 +4,8 @@
         # BIOS Passwords
         # backup ssh keys & git config - share ssh keys? on usb?
         # KitCom
+        # vim plugins or tmux
+		# alias pm='vim -c "set viminfo= nobackup nowritebackup noundofile noswapfile" ~/.passwords'
 
 # WSL
         # install
