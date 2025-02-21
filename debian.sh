@@ -1,6 +1,4 @@
 # DO
-        # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys
-        # Kate
         # secure boot
         # nmap
         # skanlite vs simple-scan
@@ -9,7 +7,6 @@
         # harden ssh
         # BIOS Passwords
         # Drive Encryption (LUKS) at Install + LVM?
-        # systemd-boot vs grub
         # btrfs or snapshots?
         # backup ssh keys & git config
 
@@ -47,7 +44,6 @@
                 # git remote add origin git@github.com:Mason-Perdue/repo.git
                 # git push -u origin main
                 # git pull origin main
-                
 
 # UEFI HP Desktop
         # https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.9.0-amd64-netinst.iso
@@ -58,10 +54,10 @@
                 # 16 GB Swap at End
                 # Fill Rest with ext4
         # masonp
-		sudo apt update
-	   sudo apt upgrade
+	sudo apt update
+	sudo apt upgrade
 	sudo apt autoremove
-	sudo apt edit-sources	   
+	sudo apt edit-sources
 	sudo apt purge vim-common vim-tiny
 	sudo apt install man vim kate git stow
 	rmdir Desktop Documents Music Pictures Public Templates Videos
@@ -71,6 +67,8 @@
 	curl -sS https://download.spotify.com/debian/pubkey_C85668DF69375001.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
 	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 	sudo apt-get update && sudo apt-get install spotify-client
-
-
-
+        sudo vim /etc/default/grub
+                # GRUB_TIMEOUT=2
+                # GRUB_GFXMODE=640x480
+                # GRUB_GFXPAYLOAD=keep
+        sudo update-grub
