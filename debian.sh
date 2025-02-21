@@ -56,12 +56,9 @@
                 git clone https://github.com/Mason-Perdue/Linux-Config.git
                 cd ~/Linux-Config/config/
                 stow -t ~/ --restow *
-	# configure grub
-                sudo vim /etc/default/grub
-                        # GRUB_TIMEOUT=2
-                        # GRUB_GFXMODE=640x480
-                        # GRUB_GFXPAYLOAD=keep  # works?
-                sudo update-grub
+        # configure gdm
+                # after setting display resolution in gnome settings
+                sudo cp ~/.config/monitors.xml /var/lib/gdm3/.config/
 
 # git
         # generate key pair
