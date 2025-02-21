@@ -17,7 +17,7 @@
         # remove software
                 sudo apt purge vim-common vim-tiny
         # add software
-                sudo apt install man kate git vim stow nmap
+                sudo apt install man kate git vim stow nmap texlive
 	# config setup
                 rm ~/.bashrc
                 # copy ssh key files
@@ -65,29 +65,16 @@
         # generate key pair
                 ssh-keygen -t ed25519 -C "perduem08@gmail.com"
                 chmod 400 ~/.ssh/id_*
-        # start ssh-agent and add key
-                eval "$(ssh-agent -s)"
-                ssh-add ~/.ssh/id_ed25519-GitHub
         # add public key to github
                 cat ~/.ssh/*.pub
                 # GitHub.com > Settings > SSH & GPG Keys
                 # add twice (auth and sign)
                 ssh -vT git@github.com  # -i [path to key]
-        # configure git
-                git config --global user.name "Mason-Perdue"
-                git config --global user.email "perduem08@gmail.com"
-                git config --global core.editor vim
-                git config --global init.defaultBranch main
-                git config --global gpg.format ssh
-                git config --global user.signingkey ~/.ssh/id_ed25519-GitHub.pub
-                git config --list
         # start repo from github
-                # git clone git@github.com:Mason-Perdue/[repo name].git
-                # git add .
-                # git commit -S -m "[comment]"
-                # git push -u origin main
-                # git log
-                # git pull origin main
+                git clone git@github.com:Mason-Perdue/[repo name].git
+                gitCommit [comment]
+                git log
+                git pull origin main
         # start new repo
-                # git init
-                # git remote add origin git@github.com:Mason-Perdue/repo.git
+                git init
+                git remote add origin git@github.com:Mason-Perdue/[repo name].git

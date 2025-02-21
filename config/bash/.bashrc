@@ -29,8 +29,6 @@ alias la='ls -a'
 alias cu='cd ..'
 alias mkdir='mkdir -p'
 alias debUp='sudo apt update && sudo apt upgrade -y && sudo apt autoremove --purge -y'
-# alias fontUp='setfont ter-132b'
-# alias fontDown='setfont'
 
 # functions
 jexe(){
@@ -48,9 +46,24 @@ bexe(){
 	./"$1.sh"
 }
 
+gitConfig(){
+	git config --global user.name "Mason-Perdue"
+	git config --global user.email "perduem08@gmail.com"
+	git config --global core.editor vim
+	git config --global init.defaultBranch main
+	git config --global gpg.format ssh
+	git config --global user.signingkey ~/.ssh/id_ed25519-GitHub.pub
+	git config --list
+}
+
+gitKey(){
+	eval "$(ssh-agent -s)"
+	ssh-add ~/.ssh/id_ed25519-GitHub
+}
+
 gitCommit(){
 	git add .
-	git commit -m "$1"
+	git commit -S -m "$1"
 	git push -u origin main;
 }
 
