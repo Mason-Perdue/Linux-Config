@@ -1,6 +1,11 @@
 # DO
     # Secure Boot + BIOS Passwords + LUKS/LVM? + BTRFS? + Snapshots?
     # Debian on KitCom
+    # Budgie Desktop
+    # Add PIN to Passwords
+    # Text Editor
+    # Program a Password Manager in Bash? with openssl?
+    # SD Card
 
 # WSL
     # install
