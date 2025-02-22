@@ -48,28 +48,13 @@ bexe(){
 
 gitKey(){
 	eval "$(ssh-agent -s)"
-	ssh-add ~/.ssh/id_ed25519-GitHub
+	ssh-add ~/.ssh/id_ed25519-GitHub	# add pass?
 }
 
 gitCommit(){
 	git add .
 	git commit -S -m "$1"
-	git push -u origin main;
-}
-
-runASM() {
-	if [[ $1 == "c" ]]
-	then
-		nasm -felf64 $2.asm
-		gcc $2.o
-		./a.out
-		rm $2.o $2
-	else
-		nasm -felf64 $1.asm
-		ld $1.o -o $1
-		./$1
-		rm $1.o $1
-	fi
+	git push -u origin main
 }
 
 reloadConfig() {
