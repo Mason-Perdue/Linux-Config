@@ -79,15 +79,19 @@
         # force signing
                 git config --local commit.gpgsign true
 
-
-
-
-
-
-
-
-
-
-
-
+# pass
+    sudo apt install pass pass-otp
+    gpg --full-generate-key    
+    gpg --list-keys
+    gpg --export --armor --output public-key.asc
+    gpg --import public-key.asc
+    gpg --export-secret-keys --armor --output private-key.asc
+    gpg --import private-key.asc
+    gpg --edit-key [key-id]
+        # trust
+        # 5
+        # quit
+    pass init "perduem08@gmail.com"
+    pass git remote add origin git@github.com:Mason-Perdue/Passwords.git
+    git push -u origin main    
 
