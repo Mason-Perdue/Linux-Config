@@ -3,7 +3,7 @@
     # Debian on KitCom
     # Budgie Desktop
     # Add PIN to Passwords
-    # Text Editor
+    # vim-terminal & nerdtree
     # Program a Password Manager in Bash? with openssl?
     # SD Card
 
