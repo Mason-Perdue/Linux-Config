@@ -1,11 +1,12 @@
 # DO
     # Secure Boot + BIOS Passwords + LUKS/LVM? + BTRFS? + Snapshots?
     # Debian on KitCom
-    # Budgie Desktop
+    # Budgie Desktop + GDM
     # Add PIN to Passwords
     # vim-terminal & nerdtree
     # Program a Password Manager in Bash? with openssl?
     # SD Card
+    # bash-completion
 
 # WSL
     # install
@@ -71,16 +72,16 @@
     # force signing
         git config --local commit.gpgsign true
 
-# TVCom - HP Desktop - UEFI
+# TVCom or KitCom
     # install
         # https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.9.0-amd64-netinst.iso
-        # TVCom
+        # TVCom or KitCom
         # Joyful.House
         # Manual Partioning
             # 1 GB EFI at Beginning
             # 16 GB Swap at End
             # EXT4 in Middle
-        # masonp
+        # masonp or family
     # configure apt
         sudo apt update
         sudo apt upgrade
@@ -96,6 +97,7 @@
         rmdir Desktop Documents Music Pictures Public Templates Videos
     # config setup
         cd ~/
+        rm ~/{.bashrc,.gitconfig}
         git clone https://github.com/Mason-Perdue/Linux-Config.git
         cd ~/Linux-Config/config/
         stow -t ~/ --restow *
