@@ -1,6 +1,0 @@
-swaybg -i ~/.config/Background.* >/dev/null 2>&1 &
-waybar >/dev/null 2>&1 &
-# wlr-randr --output HDMI-A-1 --preferred --pos 0,0 >/dev/null 2>&1 &
-# wlr-randr --output HDMI-A-1 --mode 1366x768@59.790001Hz --pos 0,0 >/dev/null 2>&1 &
-# wlr-randr --output eDP-1 --preferred --pos 0,0 --scale 1.00 >/dev/null 2>&1 &
-hypridle >/dev/null 2>&1 &
