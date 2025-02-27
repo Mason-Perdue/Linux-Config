@@ -104,6 +104,11 @@
     # configure gdm
         # after setting display resolution in gnome settings
         sudo cp ~/.config/monitors.xml /var/lib/gdm3/.config/
+    # firewall
+        sudo ufw enable
+        sudo systemctl enable --now ufw.service
+        sudo systemctl status ufw.service
+        sudo ufw status verbose
 
 
 
