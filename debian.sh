@@ -2,7 +2,6 @@
     # Secure Boot + BIOS Passwords + LUKS/LVM? + BTRFS? + Snapshots?
     # Debian on KitCom
     # Add PIN to Passwords
-    # vim-terminal & nerdtree
     # Program a Password Manager in Bash? with openssl?
     # SD Card
     # bash-completion
