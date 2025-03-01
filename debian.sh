@@ -7,6 +7,12 @@
     # bash-completion
     # Uninstall Wine & Check Packages on TVCom
 
+# make bootable usb
+    # https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.9.0-amd64-netinst.iso
+    # linux
+        sha25sum -c sha256sums.txt *.iso
+        dd if=*.iso of=/dev/disk/by-id/usb-#################### bs= 1M conv=fsync
+
 # WSL
     # install
         # masonp
@@ -71,7 +77,6 @@
 
 # TVCom or KitCom
     # install
-        # https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.9.0-amd64-netinst.iso
         # TVCom or KitCom
         # Joyful.House
         # Manual Partioning
