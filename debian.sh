@@ -2,9 +2,7 @@
     # Secure Boot + BIOS Passwords + LUKS/LVM? + BTRFS? + Snapshots?
     # Debian on KitCom
     # Add PIN to Passwords
-    # Program a Password Manager in Bash? with openssl?
     # SD Card
-    # bash-completion
     # Uninstall Wine & Check Packages on TVCom
 
 # make bootable usb
@@ -26,7 +24,7 @@
     # remove software
         sudo apt purge vim-common vim-tiny
     # add software
-        sudo apt install man git vim stow nmap texlive tree htop # pass pass-otp
+        sudo apt install man git vim stow nmap texlive tree htop oathtool
     # config setup
         rm ~/.bashrc
         eval "$(ssh-agent -s)"
@@ -37,6 +35,7 @@
         stow -t ~/ --restow *
         source ~/.bashrc
     # pass
+        sudo apt install pass pass-otp
         # gpg --full-generate-key    
         # gpg --list-keys
         # gpg --export --armor --output public-key.asc

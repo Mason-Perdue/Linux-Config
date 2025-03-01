@@ -65,3 +65,7 @@ reloadConfig() {
 	stow -t ~/ --restow *
 	cd ~/
 }
+
+totp(){
+	oathtool -b --totp "$1"
+}
