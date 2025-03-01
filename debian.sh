@@ -1,12 +1,12 @@
 # DO
     # Secure Boot + BIOS Passwords + LUKS/LVM? + BTRFS? + Snapshots?
     # Debian on KitCom
-    # Budgie Desktop + GDM
     # Add PIN to Passwords
     # vim-terminal & nerdtree
     # Program a Password Manager in Bash? with openssl?
     # SD Card
     # bash-completion
+    # Uninstall Wine & Check Packages on TVCom
 
 # WSL
     # install
