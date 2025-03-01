@@ -69,3 +69,10 @@ reloadConfig() {
 totp(){
 	oathtool -b --totp "$1"
 }
+
+pwEdit(){
+	gpg --output ~/pw.txt --decrypt /mnt/d/Drive/PW/pw.txt.gpg
+	vim ~/pw.txt
+	gpg --output /mnt/d/Drive/PW/pw.txt.gpg --encrypt --sign --yes --recipient perduem08@gmail.com ~/pw.txt
+	rm -f ~/pw.txt
+}

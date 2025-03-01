@@ -3,7 +3,7 @@
     # Debian on KitCom
     # Add PIN to Passwords
     # SD Card
-    # Uninstall Wine & Check Packages on TVCom
+    # Uninstall Wine & Check Packages on TVCom and FireWall
 
 # make bootable usb
     # https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.9.0-amd64-netinst.iso
@@ -24,7 +24,7 @@
     # remove software
         sudo apt purge vim-common vim-tiny
     # add software
-        sudo apt install man git vim stow nmap texlive tree htop oathtool
+        sudo apt install man git vim stow nmap texlive tree htop oathtool gnupg
     # config setup
         rm ~/.bashrc
         eval "$(ssh-agent -s)"
@@ -34,25 +34,20 @@
         cd ~/Linux-Config/config/
         stow -t ~/ --restow *
         source ~/.bashrc
-    # pass
-        sudo apt install pass pass-otp
-        # gpg --full-generate-key    
-        # gpg --list-keys
-        # gpg --export --armor --output public-key.asc
-        # gpg --import public-key.asc
-        # gpg --export-secret-keys --armor --output private-key.asc
-        gpg --import private-key.asc
-        gpg --edit-key [key-id]
-            # trust
-            # 5
-            # quit
-        # pass init "perduem08@gmail.com"
-        mkdir ~/.password-store
-        cd ~/.password-store
-        pass git init
-        pass git remote add origin git@github.com:Mason-Perdue/Passwords.git
-        # git push -u origin main
-        git pull origin main
+    # gpg password file
+        # to generate keys
+            gpg --full-generate-key
+            gpg --list-keys
+            gpg --export --armor --output public-key.asc
+            gpg --export-secret-keys --armor --output private-key.asc
+        # to import keys
+            gpg --import public-key.asc
+            gpg --inport private-key.asc
+            gpg --edit-key [key-id]
+                # trust
+                # 5
+                # quit
+            gpg --list-keys
 
 # git
     # generate key pair
@@ -91,14 +86,14 @@
     # remove software
         sudo apt purge vim-common vim-tiny aisleriot evolution four-in-a-row hitori hoichess iagno libreoffice lightsoff lynx malcontent orca quadrapassel swell-foop synaptic tali
     # install software
-        sudo apt install man vim git stow
+        sudo apt install man vim git stow tree htop
         # https://www.spotify.com/us/download/linux/
         # https://www.google.com/intl/en_uk/chrome/?platform=linux
     # remove home directories
         rmdir Desktop Documents Music Pictures Public Templates Videos
     # config setup
         cd ~/
-        rm ~/{.bashrc,.gitconfig}
+        rm ~/.bashrc
         git clone https://github.com/Mason-Perdue/Linux-Config.git
         cd ~/Linux-Config/config/
         stow -t ~/ --restow *
@@ -110,7 +105,3 @@
         sudo systemctl enable --now ufw.service
         sudo systemctl status ufw.service
         sudo ufw status verbose
-
-
-
-
