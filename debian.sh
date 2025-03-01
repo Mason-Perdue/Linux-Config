@@ -23,11 +23,9 @@
     # add software
         sudo apt install man git vim stow nmap texlive tree htop pass pass-otp
     # config setup
-        rm ~/{.bashrc,.gitconfig}
-        mkdir ~/.ssh
-        mv id_ed25519-GitHub{,.pub} ~/.ssh/
+        rm ~/.bashrc
         eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/id_ed25519-GitHub
+        ssh-add /mnt/d/Projects/GitHub/key/id_ed25519-GitHub
         cd ~/
         git clone git@github.com:Mason-Perdue/Linux-Config.git
         cd ~/Linux-Config/config/
