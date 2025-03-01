@@ -20,7 +20,7 @@
     # remove software
         sudo apt purge vim-common vim-tiny
     # add software
-        sudo apt install man git vim stow nmap texlive tree htop pass pass-otp
+        sudo apt install man git vim stow nmap texlive tree htop # pass pass-otp
     # config setup
         rm ~/.bashrc
         eval "$(ssh-agent -s)"
