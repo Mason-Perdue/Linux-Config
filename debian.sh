@@ -11,6 +11,26 @@
         sha25sum -c sha256sums.txt *.iso
         dd if=*.iso of=/dev/disk/by-id/usb-#################### bs= 1M conv=fsync
 
+# git
+    # generate key pair
+        ssh-keygen -t ed25519 -C "perduem08@gmail.com"
+        chmod 400 ~/.ssh/id_*
+    # add public key to github
+        cat ~/.ssh/*.pub
+        # GitHub.com > Settings > SSH & GPG Keys
+        # add twice (auth and sign)
+        ssh -vT git@github.com  # -i [path to key]
+    # start repo from github
+        git clone git@github.com:Mason-Perdue/[repo name].git
+        gitCommit [comment]
+        git log
+        git pull origin main
+    # start new repo
+        git init
+        git remote add origin git@github.com:Mason-Perdue/[repo name].git
+    # force signing
+        git config --local commit.gpgsign true
+
 # WSL
     # install
         # masonp
@@ -49,33 +69,13 @@
                 # quit
             gpg --list-keys
 
-# git
-    # generate key pair
-        ssh-keygen -t ed25519 -C "perduem08@gmail.com"
-        chmod 400 ~/.ssh/id_*
-    # add public key to github
-        cat ~/.ssh/*.pub
-        # GitHub.com > Settings > SSH & GPG Keys
-        # add twice (auth and sign)
-        ssh -vT git@github.com  # -i [path to key]
-    # start repo from github
-        git clone git@github.com:Mason-Perdue/[repo name].git
-        gitCommit [comment]
-        git log
-        git pull origin main
-    # start new repo
-        git init
-        git remote add origin git@github.com:Mason-Perdue/[repo name].git
-    # force signing
-        git config --local commit.gpgsign true
-
 # TVCom or KitCom
     # install
         # TVCom or KitCom
         # Joyful.House
         # Manual Partioning
             # 1 GB EFI at Beginning
-            # 16 GB Swap at End
+            # 16 GB or 10 GB Swap at End
             # EXT4 in Middle
         # masonp or family
     # configure apt
@@ -84,11 +84,14 @@
         sudo apt autoremove
         sudo apt edit-sources
     # remove software
-        sudo apt purge vim-common vim-tiny aisleriot evolution four-in-a-row hitori hoichess iagno libreoffice lightsoff lynx malcontent orca quadrapassel swell-foop synaptic tali
+        rmGnomeExtras
+        sudo apt purge -y firefox-esr
     # install software
-        sudo apt install man vim git stow tree htop
+        sudo apt install man git vim stow nmap tree htop oathtool gnupg
         # https://www.spotify.com/us/download/linux/
         # https://www.google.com/intl/en_uk/chrome/?platform=linux
+        sudo apt update
+        sudo apt upgrade
     # remove home directories
         rmdir Desktop Documents Music Pictures Public Templates Videos
     # config setup
@@ -97,10 +100,13 @@
         git clone https://github.com/Mason-Perdue/Linux-Config.git
         cd ~/Linux-Config/config/
         stow -t ~/ --restow *
+        source ~/.bashrc
     # configure gdm
         # after setting display resolution in gnome settings
         sudo cp ~/.config/monitors.xml /var/lib/gdm3/.config/
     # firewall
+        sudo ufw default deny incoming
+        sudo ufw default allow outgoing
         sudo ufw enable
         sudo systemctl enable --now ufw.service
         sudo systemctl status ufw.service
