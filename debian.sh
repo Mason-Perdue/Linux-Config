@@ -1,9 +1,5 @@
 # DO
     # Secure Boot + BIOS Passwords + LUKS/LVM? + BTRFS? + Snapshots?
-    # Debian on KitCom
-    # Add PIN to Passwords
-    # SD Card
-    # Uninstall Wine & Check Packages on TVCom and FireWall
 
 # make bootable usb
     # https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.9.0-amd64-netinst.iso
