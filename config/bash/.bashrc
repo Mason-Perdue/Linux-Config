@@ -66,17 +66,6 @@ reloadConfig() {
 	cd ~/
 }
 
-totp(){
-	oathtool -b --totp "$1"
-}
-
-pwEdit(){
-	gpg --output ~/pw.txt --decrypt /mnt/d/Drive/PW/pw.txt.gpg
-	vim ~/pw.txt
-	gpg --output /mnt/d/Drive/PW/pw.txt.gpg --encrypt --sign --yes --recipient perduem08@gmail.com ~/pw.txt
-	rm -f ~/pw.txt
-}
-
 rmGnomeExtras(){
 	sudo apt purge -y vim-common vim-tiny gnome-games gnome-2048 gnome-chess gnome-klotski gnome-nibbles gnome-robots gnome-sudoku gnome-taquin gnome-tetravex gnome-mahjongg gnome-mines five-or-more aisleriot transmission* synaptic
 	sudo apt autoremove --purge -y

@@ -65,15 +65,15 @@
                 # quit
             gpg --list-keys
 
-# TVCom or KitCom
+# KitCom
     # install
-        # TVCom or KitCom
+        # KitCom
         # Joyful.House
         # Manual Partioning
             # 1 GB EFI at Beginning
-            # 16 GB or 10 GB Swap at End
+            # 10 GB Swap at End
             # EXT4 in Middle
-        # masonp or family
+        # family
     # configure apt
         sudo apt update
         sudo apt upgrade
@@ -83,7 +83,7 @@
         rmGnomeExtras
         sudo apt purge -y firefox-esr
     # install software
-        sudo apt install man git vim stow nmap tree htop oathtool gnupg
+        sudo apt install man git vim stow nmap tree htop
         # https://www.spotify.com/us/download/linux/
         # https://www.google.com/intl/en_uk/chrome/?platform=linux
         sudo apt update
