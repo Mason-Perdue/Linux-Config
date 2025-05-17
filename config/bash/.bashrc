@@ -56,7 +56,7 @@ bexe(){
 
 gitKey(){
 	eval "$(ssh-agent -s)"
-	ssh-add ~/.ssh/id_ed25519-GitHub
+	ssh-add ~/.ssh/id_ed25519
 }
 
 gitCommit(){
