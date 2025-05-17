@@ -2,7 +2,7 @@
 # Install archlinux for WSL2 on Windows 11
 # https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL
 
-# DO: usbipd
+# DO: usbipd, git, ssh
 
 # change wsl networking mode to mirrored
 # wsl --update
@@ -60,3 +60,19 @@ pacup
 paclean
 reloadConfig
 bashUp
+ssh-keygen -t ed25519 -C "perduem08@gmail.com"
+chmod 400 ~/.ssh/id_*
+cat ~/.ssh/*.pub
+# GitHub.com > Settings > SSH & GPG Keys
+# add twice (auth and sign)
+ssh -vT git@github.com  # -i [path to key]
+# start repo from github
+git clone git@github.com:Mason-Perdue/[repo name].git
+gitCommit [comment]
+git log
+git pull origin main
+# start new repo
+git init
+git remote add origin git@github.com:Mason-Perdue/[repo name].git
+# force signing
+git config --local commit.gpgsign true
