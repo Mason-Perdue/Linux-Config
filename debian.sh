@@ -40,7 +40,7 @@
     # remove software
         sudo apt purge vim-common vim-tiny
     # add software
-        sudo apt install man git vim stow nmap texlive tree htop oathtool gnupg
+        sudo apt install man git vim stow nmap texlive-full tree htop # oathtool gnupg
     # config setup
         rm ~/.bashrc
         eval "$(ssh-agent -s)"
